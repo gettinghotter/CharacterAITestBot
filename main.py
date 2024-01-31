@@ -10,7 +10,7 @@ def main(message):
 
 @bot.message_handler(commands=['start'])
 def main(message):
-    bot.send_message(message.chat.id,f'Привет, {message.from_user.first_name} {message.from_user.last_name}  это бот, который будет делать что-то. Введи /help для помощи')
+    bot.send_message(message.chat.id,f'Привет, {message.from_user.first_name} {message.from_user.last_name}  это бот, который будет делать что-то. Введи /help для помощи. Еще разрабатывается...')
 
 @bot.message_handler(commands=['help'])
 def main(message):
