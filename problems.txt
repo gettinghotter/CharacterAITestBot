@@ -1,0 +1,2 @@
+https://github.com/pypa/pip/issues/5599
+надо подключить апи, пофиксить pip
