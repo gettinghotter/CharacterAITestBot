@@ -6,8 +6,7 @@ import webbrowser
 #https://github.com/kramcat/CharacterAI?tab=readme-ov-file
 #https://pycai.gitbook.io/welcome/examples/chatting
 
-
-
+bot = telebot.TeleBot('6551916291:AAHrq33hbQzlJWy7mubjsNM2laiGrDOM7DA')
 from characterai import PyCAI
 
 client = PyCAI('81da6bdced6150a7fc939ea82403c9c2910f0b3f')
@@ -22,18 +21,27 @@ if not participants[0]['is_human']:
     tgt = participants[0]['user']['username']
 else:
     tgt = participants[1]['user']['username']
+InputText = ''
+
+# нужно создать условие для проверки ввода и перенести сообщение в chai
+@bot.message_handler()
+def InputMessage(message):
+    InputText = message.text.lower
 
 while True:
-    message = input('You: ')
+    if InputText == '':
+        pass
+    else:
+        message = InputText
 
-    data = client.chat.send_message(
-        chat['external_id'], tgt, message
-    )
+        data = client.chat.send_message(
+            chat['external_id'], tgt, message
+        )
 
-    name = data['src_char']['participant']['name']
-    text = data['replies'][0]['text']
+        name = data['src_char']['participant']['name']
+        text = data['replies'][0]['text']
 
-    print(f"{name}: {text}")
+        print(f"{name}: {text}")
 
 
 bot = telebot.TeleBot('6551916291:AAHrq33hbQzlJWy7mubjsNM2laiGrDOM7DA')
