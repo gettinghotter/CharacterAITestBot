@@ -1,0 +1,64 @@
+https://github.com/kramcat/CharacterAI?tab=readme-ov-file
+https://pycai.gitbook.io/welcome/examples/chatting
+81da6bdced6150a7fc939ea82403c9c2910f0b3f - monika
+
+
+
+нужно создать условие для проверки ввода и перенести сообщение в chai
+while True:
+    if len(InputText) != 0:
+        message = InputText
+        data = client.chat.send_message(
+            chat['external_id'], tgt, message
+        )
+        name = data['src_char']['participant']['name']
+        text = data['replies'][0]['text']
+
+        print(f"{name}: {text}")
+исходник из тутора
+
+@bot.message_handler()
+def InputMessage(message):
+    InputText = message.text.lower
+    while True:
+        if len(InputText) != 0:
+            message = InputText
+            data = client.chat.send_message(
+                chat['external_id'], tgt, message
+            )
+            name = data['src_char']['participant']['name']
+            text = data['replies'][0]['text']
+            print(f"{name}: {text}")
+возможная функция
+
+
+# @bot.message_handler(commands=['start'])
+# def start(message):
+#
+#     cur.execute('CREATE TABLE IF NOT EXISTS users (id int auto_increment primary key, name varchar(50), pass varchar(50)')
+#     conn.commit()
+#     cur.close()
+#     conn.close()
+#
+#     bot.send_message(message.chat.id, 'Привет, укажи свое имя')
+#     bot.register_next_step_handler(message, user_name)
+#что-то для sql
+
+
+
+# from characterai import PyCAI
+#
+# client = PyCAI('81da6bdced6150a7fc939ea82403c9c2910f0b3f')
+#
+# char = input('Enter CHAR: ')
+#
+# chat = client.chat.get_chat(char)
+#
+# participants = chat['participants']
+#
+# if not participants[0]['is_human']:
+#     tgt = participants[0]['user']['username']
+# else:
+#     tgt = participants[1]['user']['username']
+# InputText = ''
+для апи

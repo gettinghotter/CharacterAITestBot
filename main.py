@@ -1,60 +1,44 @@
-#81da6bdced6150a7fc939ea82403c9c2910f0b3f
 import telebot
-import webbrowser
-
-
-#https://github.com/kramcat/CharacterAI?tab=readme-ov-file
-#https://pycai.gitbook.io/welcome/examples/chatting
+from telebot import types
 
 bot = telebot.TeleBot('6551916291:AAHrq33hbQzlJWy7mubjsNM2laiGrDOM7DA')
+
+
 from characterai import PyCAI
 
 client = PyCAI('81da6bdced6150a7fc939ea82403c9c2910f0b3f')
 
-char = input('Enter CHAR: ')
+@bot.message_handler(commands=['dialog'])
+def chat(message):
+    chat = 'EdSSlsl49k3wnwvMvK4eCh4yOFBaGTMJ7Q9CxtG2DiU'
+    participants = chat['participants']
 
-chat = client.chat.get_chat(char)
-
-participants = chat['participants']
-
-if not participants[0]['is_human']:
-    tgt = participants[0]['user']['username']
-else:
-    tgt = participants[1]['user']['username']
-InputText = ''
-
-# нужно создать условие для проверки ввода и перенести сообщение в chai
-@bot.message_handler()
-def InputMessage(message):
-    InputText = message.text.lower
-
-while True:
-    if InputText == '':
-        pass
+    if not participants[0]['is_human']:
+        tgt = participants[0]['user']['username']
     else:
-        message = InputText
+        tgt = participants[1]['user']['username']
+    InputText = message.text
+    print(InputText)
+    while True:
+        if len(InputText) != 0:
+            data = client.chat.send_message(
+                chat['external_id'], tgt, message
+            )
+            name = data['src_char']['participant']['name']
+            text = data['replies'][0]['text']
 
-        data = client.chat.send_message(
-            chat['external_id'], tgt, message
-        )
-
-        name = data['src_char']['participant']['name']
-        text = data['replies'][0]['text']
-
-        print(f"{name}: {text}")
-
-
-bot = telebot.TeleBot('6551916291:AAHrq33hbQzlJWy7mubjsNM2laiGrDOM7DA')
-
-
-@bot.message_handler(commands=['developer'])
-def main(message):
-    bot.send_message(message.chat.id,'https://github.com/gettinghotter')
+            print(f"{name}: {text}")
 
 
 @bot.message_handler(commands=['start'])
 def main(message):
-    bot.send_message(message.chat.id,f'Привет, {message.from_user.first_name} {message.from_user.last_name}  это бот, который будет делать что-то. Введи /help для помощи. Еще разрабатывается...')
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton('Сайт нейросети', url ='https://beta.character.ai/'))
+    bot.send_message(message.chat.id,f'Привет, {message.from_user.first_name} {message.from_user.last_name}  это бот, который будет делать что-то. Введи /help для помощи. Еще разрабатывается...', reply_markup=markup)
+
+@bot.message_handler(commands=['developer'])
+def main(message):
+    bot.send_message(message.chat.id,'https://github.com/gettinghotter')
 
 @bot.message_handler(commands=['help'])
 def main(message):
@@ -70,6 +54,4 @@ def info(message):
     if message.text.lower()  == 'привет':
         bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name}')
 
-
-
-bot.infinity_polling(none_stop=True)
+bot.polling(none_stop=True)

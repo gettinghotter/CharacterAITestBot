@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1301a384-3af2-4d9f-b6c4-075b8486414a" name="Changes" comment="AI is working now. But there's no input from bot" />
+    <list default="true" id="1301a384-3af2-4d9f-b6c4-075b8486414a" name="Changes" comment="AI is working now. But there's no input from bot">
+      <change afterPath="$PROJECT_DIR$/notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CharacterAITestBot/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CharacterAITestBot/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CharacterAITestBot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +49,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -142,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707027019493</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="AI is working now. But there's no input from bot">
+      <option name="closed" value="true" />
+      <created>1707027063197</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707027063197</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
